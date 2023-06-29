@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-if [ $# -eq 0 ]; then   # Validation if only argument [0] is passed
-    echo "Usage: $(basename "$0") {IP_ADDRESS}"
-else
-    ping -c 5 "$1" # -c <count>   stop after <count> replies
+# Bash script that pings an IP address passed as an argument
+if [ -z "$1" ]; then    #  verify if the argument [1] is empty
+  echo "Usage: $(basename "$0") {IP_ADDRESS}"
+  exit 1
 fi
+ping -c 5 "$1"  # -c <count>   stop after <count> replies
